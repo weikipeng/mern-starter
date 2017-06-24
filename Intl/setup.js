@@ -1,5 +1,6 @@
 // list of available languages
 export const enabledLanguages = [
+  'zh',
   'en',
   'fr',
 ];
@@ -47,6 +48,14 @@ function flattenMessages(nestedMessages = {}, prefix = '') {
     return messages;
   }, {});
 }
+
+// bring in intl polyfill, react-intl, and app-specific language data
+import 'intl/locale-data/jsonp/zh';
+import zh from 'react-intl/locale-data/zh';
+import zhData from './localizationData/zh';
+addLocaleData(zh);
+localizationData.zh = zhData;
+localizationData.zh.messages = flattenMessages(localizationData.zh.messages);
 
 // bring in intl polyfill, react-intl, and app-specific language data
 import 'intl/locale-data/jsonp/en';
