@@ -1,3 +1,31 @@
+/***
+Page Header
+***/
+.page-header.navbar {
+  width: 100%;
+  padding: 0 20px 0 20px;
+  margin: 0;
+  border: 0px;
+  padding: 0px;
+  box-shadow: none;
+  height: 50px;
+  min-height: 50px;
+  filter: none;
+  background-image: none;
+  /* Fixed header */
+  /* Header logo */
+  /* Search box */
+  /* Menu Toggler */
+  /* Top menu */ }
+  .page-header.navbar.navbar-fixed-top {
+  z-index: 9995; }
+
+
+
+
+
+
+
 .header {
   background: #eee url('../../header-bk.png') center;
   background-size: cover;
