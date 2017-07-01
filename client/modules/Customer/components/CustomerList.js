@@ -11,7 +11,7 @@ function CustomerList(props) {
           <CustomerListItem
             customer={customer}
             key={customer.cuid}
-            onDelete={() => props.handleDeletePost(customer.cuid)}
+            onDelete={() => props.handleDeleteCustomer(customer.cuid)}
           />
         ))
       }
@@ -28,7 +28,7 @@ CustomerList.propTypes = {
     progress: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
   })).isRequired,
-  handleDeletePost: PropTypes.func.isRequired,
+  handleDeleteCustomer: PropTypes.func.isRequired,
 };
 
-export default PostList;
+export default CustomerList;
