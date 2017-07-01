@@ -11,13 +11,6 @@ let cx = classNames.bind(styles);
 
 let headerClass = cx("page-header", "navbar", "navbar-fixed-top");
 
-// // Create a Title component that'll render an <h1> tag with some styles
-// const Title = styled.h1`
-// 	font-size: 1.5em;
-// 	text-align: center;
-// 	color: palevioletred;
-// `;
-
 const PageHeader = styled.div`
     z-index:9995;
     background-color:  ${props => props.theme.page_header_bg};
@@ -40,7 +33,7 @@ const PageHeader = styled.div`
 `;
 
 // We're passing a default theme for Buttons that aren't wrapped in the ThemeProvider
-Button.defaultProps = {
+PageHeader.defaultProps = {
 	theme: {
 		page_header_bg: '#2b3643'
 	}
@@ -49,6 +42,13 @@ Button.defaultProps = {
 export function Header(props, context) {
   return (
     <PageHeader>
+      <div className="page-header-inner">
+        <div className={styles.pageLogoDiv}>
+          <a href="#">
+            <img src={require("./logo.png")} alt="logo" className={styles.pageLogo} />
+          </a>    
+        </div>
+      </div>
     </PageHeader>
   );
 }

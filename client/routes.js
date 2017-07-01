@@ -25,11 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 export default (
   <Route path="/" component={App}>
     <IndexRoute
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
-        });
-      }}
+
     />
     <Route
       path="/posts/:slug-:cuid"
@@ -41,3 +37,10 @@ export default (
     />
   </Route>
 );
+
+
+// getComponent={(nextState, cb) => {
+//   require.ensure([], require => {
+//     cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+//   });
+// }}
