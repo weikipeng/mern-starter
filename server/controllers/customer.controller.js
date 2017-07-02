@@ -19,6 +19,16 @@ export function getCustomers(req, res) {
 }
 
 /**
+ * create customer page
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function getCustomerCreatePage(req, res) {
+    res.json({});
+}
+
+/**
  * Save a customer
  * @param req
  * @param res

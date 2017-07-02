@@ -11,6 +11,10 @@ router.route('/customers/:cuid').get(CustomerController.getCustomer);
 // Add a new Customer
 router.route('/customers').post(CustomerController.addCustomer);
 
+// Add a new Customer
+router.route('/customers/create').post(CustomerController.getCustomerCreatePage);
+
+
 // Delete a customer by cuid
 router.route('/customers/:cuid').delete(CustomerController.deleteCustomer);
 

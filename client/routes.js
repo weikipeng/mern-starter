@@ -21,6 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 require('./modules/Customer/pages/CustomerListPage/CustomerListPage');
+require('./modules/Customer/pages/CustomerCreatePage/CustomerCreatePage');
 
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
@@ -30,6 +31,14 @@ export default (
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/Customer/pages/CustomerListPage/CustomerListPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/customers/create"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Customer/pages/CustomerCreatePage/CustomerCreatePage').default);
         });
       }}
     />
