@@ -31,7 +31,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className={styles["page-header-fixed"]}>
           <Helmet
             title="后台管理系统"
             titleTemplate="%s - 后台管理系统"
@@ -52,8 +52,12 @@ export class App extends Component {
             intl={this.props.intl}
             toggleAddPost={this.toggleAddPostSection}
           />
-          <div className={styles.container}>
-            {this.props.children}
+          <div className={styles["page-container"]} >
+            <div className={styles["page-content-wrapper"]}>
+              <div className={styles["page-content"]}>
+                {this.props.children}
+              </div>
+            </div>
           </div>
           <Footer />
         </div>

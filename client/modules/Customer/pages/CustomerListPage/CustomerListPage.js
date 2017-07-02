@@ -31,6 +31,9 @@ class CustomerListPage extends Component {
   render() {
     return (
       <div>
+        <h1>好的好的</h1>
+        <p>好的好的</p>
+        <p>好的好的</p>
         <CustomerList handleDeleteCustomer={this.handleDeleteCustomer} customers={this.props.customers} />
       </div>
     );

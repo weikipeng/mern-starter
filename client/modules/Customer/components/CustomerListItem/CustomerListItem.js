@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
-import styles from './CustomerListItem.css';
+// import styles from './CustomerListItem.css';
 
 function CustomerListItem(props) {
   return (
