@@ -14,6 +14,9 @@ export class CustomerCreateWidget extends Component {
       activeKey: '1',
       value: ''
     };
+    this.customerRef = {
+
+    };
   }
 
   handleSelect = (activeKey)=> {
@@ -39,16 +42,24 @@ export class CustomerCreateWidget extends Component {
     //   nameRef.value = titleRef.value = contentRef.value = '';
     // }
 
-    const nameRef = this.customerName;
-    const idNumRef = this.idNum;
-    const ruWangTypeRef = this.ruWangType;
 
-    const nameRefValue =nameRef.value;
-    console.log("logDebug ======>名字："+ nameRef.value +
-      "\nidNumRef:"+ idNumRef.value +
-      "\n入网方式："+ruWangTypeRef.value
-    );
-    // console.log("logDebug ======>名字："+nameRefValue);
+    // -----
+    let customer = {};
+    customer.name = this.customerRef.name.value;
+    customer.idNum = this.customerRef.idNum.value;
+    console.log("logDebug ======>名字："+JSON.stringify(customer));
+
+    this.props.addCustomer(customer);
+    // const nameRef = this.customerName;
+    // const idNumRef = this.idNum;
+    // const ruWangTypeRef = this.ruWangType;
+    //
+    // const nameRefValue =nameRef.value;
+    // console.log("logDebug ======>名字："+ nameRef.value +
+    //   "\nidNumRef:"+ idNumRef.value +
+    //   "\n入网方式："+ruWangTypeRef.value
+    // );
+    // console.log("logDebug ======>ruWangTypeRef:"+ruWangTypeRef);
     // console.log("logDebug ======>名字："+nameRef.value);
   };
 
@@ -66,7 +77,7 @@ export class CustomerCreateWidget extends Component {
                 </Col>
                 <Col md={formControlWidth}>
                   <FormControl type="text" placeholder="请输入用户姓名" defaultValue="默认名字"
-                    inputRef={(ref) => {this.customerName = ref}}/>
+                    inputRef={(ref) => {this.customerRef.name = ref}}/>
                 </Col>
               </FormGroup>
               <FormGroup controlId="formHorizontalIdNum">
@@ -75,7 +86,7 @@ export class CustomerCreateWidget extends Component {
                 </Col>
                 <Col sm={formControlWidth}>
                   <FormControl type="text" placeholder="请输入身份证号码"
-                  inputRef={(ref) => {this.idNum = ref}}/>
+                  inputRef={(ref) => {this.customerRef.idNum = ref}}/>
                 </Col>
               </FormGroup>
 
@@ -120,11 +131,11 @@ export class CustomerCreateWidget extends Component {
                     上网方式
                   </Col>
                   <Col sm={formControlWidth}>
-                    <Radio value="0" name="dianTypeRadioGroup" inline inputRef={(ref) => {this.ruWangType = ref}}>
+                    <Radio value="0" name="dianTypeRadioGroup" inline inputRef={(ref) => {this.customerRef.ruWangType = ref}}>
                       全额上网
                     </Radio>
                     {' '}
-                    <Radio value="1" name="dianTypeRadioGroup" inline inputRef={(ref) => {this.ruWangType = ref}}>
+                    <Radio value="1" name="dianTypeRadioGroup" inline inputRef={(ref) => {this.customerRef.ruWangType = ref}}>
                       自发自用，余电上网
                     </Radio>
                   </Col>
