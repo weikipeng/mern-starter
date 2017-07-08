@@ -15,7 +15,9 @@ export function addCustomer(customer) {
 
 export function addCustomerRequest(customer) {
   return (dispatch) => {
-    return callApi('customers', 'post', customer).then(res => dispatch(addCustomer(res.customer)));
+    return callApi('customers', 'post', {
+      customer: customer,
+    }).then(res => dispatch(addCustomer(res.customer)));
   };
 }
 

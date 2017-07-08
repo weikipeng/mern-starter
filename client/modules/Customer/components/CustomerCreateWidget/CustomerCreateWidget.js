@@ -47,7 +47,7 @@ export class CustomerCreateWidget extends Component {
     let customer = {};
     customer.name = this.customerRef.name.value;
     customer.idNum = this.customerRef.idNum.value;
-    console.log("logDebug ======>名字："+JSON.stringify(customer));
+    // console.log("logDebug ======>名字："+JSON.stringify(customer));
 
     this.props.addCustomer(customer);
     // const nameRef = this.customerName;

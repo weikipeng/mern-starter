@@ -35,25 +35,28 @@ export function getCustomerCreatePage(req, res) {
  * @returns void
  */
 export function addCustomer(req, res) {
-  if (!req.body.customer.name || !req.body.customer.title || !req.body.customer.content) {
-    res.status(403).end();
-  }
 
-  const newCustomer = new Customer(req.body.customer);
-
-  // Let's sanitize inputs
-  newCustomer.title = sanitizeHtml(newCustomer.title);
-  newCustomer.name = sanitizeHtml(newCustomer.name);
-  newCustomer.content = sanitizeHtml(newCustomer.content);
-
-  newCustomer.slug = slug(newCustomer.title.toLowerCase(), { lowercase: true });
-  newCustomer.cuid = cuid();
-  newCustomer.save((err, saved) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ customer: saved });
-  });
+  console.log("log customer ======> "+req.body.customer);
+  res.json({customer:req.body.customer});
+  // if (!req.body.customer.name || !req.body.customer.title || !req.body.customer.content) {
+  //   res.status(403).end();
+  // }
+  //
+  // const newCustomer = new Customer(req.body.customer);
+  //
+  // // Let's sanitize inputs
+  // newCustomer.title = sanitizeHtml(newCustomer.title);
+  // newCustomer.name = sanitizeHtml(newCustomer.name);
+  // newCustomer.content = sanitizeHtml(newCustomer.content);
+  //
+  // newCustomer.slug = slug(newCustomer.title.toLowerCase(), { lowercase: true });
+  // newCustomer.cuid = cuid();
+  // newCustomer.save((err, saved) => {
+  //   if (err) {
+  //     res.status(500).send(err);
+  //   }
+  //   res.json({ customer: saved });
+  // });
 }
 
 /**
