@@ -3,7 +3,7 @@ import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import {Form,FormGroup, ControlLabel,FormControl,HelpBlock} from 'react-bootstrap'
 import {Grid,Row,Col} from 'react-bootstrap'
 import {PanelGroup,Panel} from 'react-bootstrap'
-import {Radio} from 'react-bootstrap'
+import {Button,Radio} from 'react-bootstrap'
 // Import Style
 // import styles from './CustomerCreateWidget.css';
 
@@ -30,6 +30,28 @@ export class CustomerCreateWidget extends Component {
     this.setState({ value: e.target.value });
   };
 
+  addCustomer = () => {
+    // const nameRef = this.refs.name;
+    // const titleRef = this.refs.title;
+    // const contentRef = this.refs.content;
+    // if (nameRef.value && titleRef.value && contentRef.value) {
+    //   this.props.addPost(nameRef.value, titleRef.value, contentRef.value);
+    //   nameRef.value = titleRef.value = contentRef.value = '';
+    // }
+
+    const nameRef = this.customerName;
+    const idNumRef = this.idNum;
+    const ruWangTypeRef = this.ruWangType;
+
+    const nameRefValue =nameRef.value;
+    console.log("logDebug ======>名字："+ nameRef.value +
+      "\nidNumRef:"+ idNumRef.value +
+      "\n入网方式："+ruWangTypeRef.value
+    );
+    // console.log("logDebug ======>名字："+nameRefValue);
+    // console.log("logDebug ======>名字："+nameRef.value);
+  };
+
   render() {
     var labelWidth = 2;
     var formControlWidth = 9;
@@ -43,7 +65,8 @@ export class CustomerCreateWidget extends Component {
                   姓名
                 </Col>
                 <Col md={formControlWidth}>
-                  <FormControl type="text" placeholder="请输入用户姓名" />
+                  <FormControl type="text" placeholder="请输入用户姓名" defaultValue="默认名字"
+                    inputRef={(ref) => {this.customerName = ref}}/>
                 </Col>
               </FormGroup>
               <FormGroup controlId="formHorizontalIdNum">
@@ -51,7 +74,8 @@ export class CustomerCreateWidget extends Component {
                   身份证号
                 </Col>
                 <Col sm={formControlWidth}>
-                  <FormControl type="text" placeholder="请输入身份证号码" />
+                  <FormControl type="text" placeholder="请输入身份证号码"
+                  inputRef={(ref) => {this.idNum = ref}}/>
                 </Col>
               </FormGroup>
 
@@ -91,16 +115,16 @@ export class CustomerCreateWidget extends Component {
                 </Col>
               </FormGroup>
 
-              <FormGroup controlId="formHorizontalDianType">
+              <FormGroup controlId="formHorizontalRuWangType">
                   <Col componentClass={ControlLabel} sm={labelWidth}>
                     上网方式
                   </Col>
                   <Col sm={formControlWidth}>
-                    <Radio name="dianTypeRadioGroup" inline>
+                    <Radio value="0" name="dianTypeRadioGroup" inline inputRef={(ref) => {this.ruWangType = ref}}>
                       全额上网
                     </Radio>
                     {' '}
-                    <Radio name="dianTypeRadioGroup" inline>
+                    <Radio value="1" name="dianTypeRadioGroup" inline inputRef={(ref) => {this.ruWangType = ref}}>
                       自发自用，余电上网
                     </Radio>
                   </Col>
@@ -149,6 +173,13 @@ export class CustomerCreateWidget extends Component {
                 </Col>
                 <Col sm={formControlWidth}>
                   <FormControl type="text" placeholder="其他" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Col smOffset={2} sm={10}>
+                  <Button bsStyle="primary" href="#" type="submit" onClick={this.addCustomer}>
+                    添加
+                  </Button>
                 </Col>
               </FormGroup>
             </Form>
